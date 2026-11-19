@@ -162,3 +162,107 @@ p a,
 .scroll-top:hover i {
   color: #000000;
 }
+/* Complementary task: lists */
+.tools-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.tools-list > li {
+  position: relative;
+  padding: 8px 0 8px 32px;
+}
+
+.tools-list > li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+/* Nested list: looks different from the main list */
+.tools-list ul {
+  list-style: none;
+  margin: 6px 0 0 4px;
+  padding-left: 14px;
+  border-left: 2px dashed var(--accent-color);
+}
+
+.tools-list ul li {
+  position: relative;
+  padding: 4px 0 4px 20px;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.tools-list ul li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #ffd166;
+}
+
+/* Numbered list with a counter */
+.stages-list {
+  list-style: none;
+  counter-reset: step;
+  padding-left: 0;
+}
+
+.stages-list li {
+  counter-increment: step;
+  position: relative;
+  padding: 10px 0 10px 52px;
+}
+
+.stages-list li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: #000000;
+  font-weight: 700;
+}
+
+/* Complementary task: table */
+.service-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.service-table th,
+.service-table td {
+  padding: 14px 18px;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-table thead th {
+  background: var(--accent-color);
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.service-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.service-table tbody tr:hover {
+  background: rgba(24, 210, 110, 0.2);
+}
