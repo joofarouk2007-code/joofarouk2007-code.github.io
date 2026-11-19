@@ -266,3 +266,807 @@ p a,
 .service-table tbody tr:hover {
   background: rgba(24, 210, 110, 0.2);
 }
+/* =========================================================
+   Laboratory Work 10: User Competency Progress Module
+   ========================================================= */
+
+.ucp-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Summary Card (XP, Level, Rank & Progress Bar) */
+.ucp-summary-card,
+.ucp-stats-bar {
+  background-color: var(--surface-color, #1a1a1a);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.ucp-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.ucp-profile-badge {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ucp-profile-badge i {
+  font-size: 2rem;
+  color: var(--accent-color, #18d26e);
+  background: rgba(24, 210, 110, 0.12);
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.ucp-profile-badge h4 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--heading-color, #ffffff);
+}
+
+.ucp-profile-badge span {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.ucp-metric-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ucp-metric-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ucp-metric-label i {
+  color: var(--accent-color, #18d26e);
+}
+
+.ucp-metric-value {
+  font-size: 1.35rem;
+  color: var(--heading-color, #ffffff);
+}
+
+.ucp-metric-value small {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* XP Progress Bar */
+.ucp-xp-progress-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--heading-color, #ffffff);
+}
+
+.ucp-xp-bar-track {
+  width: 100%;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.ucp-xp-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-color, #18d26e), #00b4d8);
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+/* Skill Statistics Bar */
+.ucp-stats-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.ucp-stats-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--heading-color, #ffffff);
+}
+
+.ucp-stats-title i {
+  color: var(--accent-color, #18d26e);
+  font-size: 1.3rem;
+}
+
+.ucp-stats-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.ucp-stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.ucp-stat-label {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.ucp-stat-number {
+  font-size: 1.3rem;
+  color: var(--accent-color, #18d26e);
+}
+
+/* Kanban Board */
+.ucp-kanban-header h3 {
+  margin: 0 0 4px;
+  font-size: 1.35rem;
+  color: var(--heading-color, #ffffff);
+}
+
+.ucp-kanban-header p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ucp-kanban-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 991px) {
+  .ucp-kanban-board {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ucp-column {
+  background-color: var(--surface-color, #1a1a1a);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ucp-column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1rem;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--heading-color, #ffffff);
+}
+
+.ucp-count-badge {
+  font-size: 0.78rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ucp-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ucp-skill-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 14px 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.ucp-skill-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-color, #18d26e);
+}
+
+.ucp-skill-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.ucp-skill-title i {
+  color: var(--accent-color, #18d26e);
+  font-size: 1.1rem;
+}
+
+.ucp-skill-title h5 {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--heading-color, #ffffff);
+}
+
+.ucp-skill-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ucp-status {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.status-planned {
+  background: rgba(148, 163, 184, 0.18);
+  color: #cbd5e1;
+}
+
+.status-progress {
+  background: rgba(56, 189, 248, 0.18);
+  color: #7dd3fc;
+}
+
+.status-completed {
+  background: rgba(24, 210, 110, 0.18);
+  color: #4ade80;
+}
+
+.ucp-xp-tag {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--heading-color, #ffffff);
+}
+
+/* =========================================================
+   Complementary Task 1: Animated Gradient in Services Section
+   ========================================================= */
+
+#services.services.section {
+  background: linear-gradient(-45deg, #0b132b, #1c2541, #0f3d3e, #12263a);
+  background-size: 400% 400%;
+  animation: servicesGradientShift 12s ease infinite;
+}
+
+@keyframes servicesGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* =========================================================
+   Complementary Task 2: Animated CSS Shapes in About Section
+   ========================================================= */
+
+#about.about.section {
+  position: relative;
+  overflow: hidden;
+}
+
+#about .container {
+  position: relative;
+  z-index: 2;
+}
+
+.about-shape {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.25;
+}
+
+/* Shape 1: Floating Circle */
+.shape-circle {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-color, #18d26e), transparent 70%);
+  top: 12%;
+  right: 8%;
+  animation: floatShape 6s ease-in-out infinite;
+}
+
+/* Shape 2: Rotating Square */
+.shape-square {
+  width: 70px;
+  height: 70px;
+  border: 3px solid var(--accent-color, #18d26e);
+  border-radius: 10px;
+  bottom: 15%;
+  left: 5%;
+  animation: rotateShape 14s linear infinite;
+}
+
+/* Shape 3: Pulsing Triangle */
+.shape-triangle {
+  width: 0;
+  height: 0;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-bottom: 60px solid #00b4d8;
+  top: 55%;
+  right: 12%;
+  animation: pulseScaleShape 5s ease-in-out infinite;
+}
+
+@keyframes floatShape {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-22px);
+  }
+}
+
+@keyframes rotateShape {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseScaleShape {
+  0%, 100% {
+    transform: scale(1) rotate(10deg);
+  }
+  50% {
+    transform: scale(1.25) rotate(-10deg);
+  }
+}
+
+/* =========================================================
+   10 Animated Gradient Backgrounds Across the CV Website
+   ========================================================= */
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 1. Skills Section (#skills in about.html) */
+#skills.skills.section {
+  background: linear-gradient(-45deg, #0d1b2a, #1b263b, #102a43, #0b2545);
+  background-size: 300% 300%;
+  animation: gradientFlow 14s ease infinite;
+}
+
+/* 2. Progress Module Section (#progress-module in about.html) */
+#progress-module.progress-module.section {
+  background: linear-gradient(-45deg, #081c15, #1b4332, #0b2545, #101820);
+  background-size: 300% 300%;
+  animation: gradientFlow 16s ease infinite;
+}
+
+/* 3. XP Summary Card */
+.ucp-summary-card {
+  background: linear-gradient(120deg, rgba(24, 210, 110, 0.14), rgba(0, 180, 216, 0.12), rgba(20, 33, 61, 0.85));
+  background-size: 250% 250%;
+  animation: gradientFlow 10s ease infinite;
+}
+
+/* 4. Skill Statistics Bar */
+.ucp-stats-bar {
+  background: linear-gradient(120deg, rgba(16, 185, 129, 0.14), rgba(59, 130, 246, 0.14), rgba(15, 23, 42, 0.9));
+  background-size: 250% 250%;
+  animation: gradientFlow 11s ease infinite;
+}
+
+/* 5. Kanban Board Columns */
+.ucp-column {
+  background: linear-gradient(160deg, rgba(15, 23, 42, 0.92), rgba(30, 41, 59, 0.85), rgba(13, 148, 136, 0.15));
+  background-size: 250% 250%;
+  animation: gradientFlow 13s ease infinite;
+}
+
+/* 6. Service Cards (.service-item in services.html) */
+#services .service-item {
+  background: linear-gradient(-45deg, rgba(17, 24, 39, 0.9), rgba(15, 118, 110, 0.25), rgba(30, 58, 138, 0.25), rgba(17, 24, 39, 0.9));
+  background-size: 300% 300%;
+  animation: gradientFlow 9s ease infinite;
+  border-radius: 12px;
+}
+
+/* 7. Service Prices Table Header (services.html) */
+.service-table thead tr {
+  background: linear-gradient(90deg, #18d26e, #00b4d8, #3b82f6, #18d26e);
+  background-size: 300% 300%;
+  animation: gradientFlow 8s ease infinite;
+  color: #0b132b;
+}
+
+/* 8. Resume Section (resume.html) */
+#resume.resume.section {
+  background: linear-gradient(-45deg, #090d16, #111827, #0f292f, #131c31);
+  background-size: 300% 300%;
+  animation: gradientFlow 15s ease infinite;
+}
+
+/* 9. Portfolio Section (portfolio.html) */
+#portfolio.portfolio.section {
+  background: linear-gradient(-45deg, #0b0f19, #172033, #0d2b36, #111827);
+  background-size: 300% 300%;
+  animation: gradientFlow 15s ease infinite;
+}
+
+/* 10. Contact Section & Footer (all pages) */
+#contact.contact.section,
+#footer.footer {
+  background: linear-gradient(-45deg, #06090f, #0f172a, #0b2e26, #090d16);
+  background-size: 300% 300%;
+  animation: gradientFlow 14s ease infinite;
+}
+
+/* =========================================================
+   Moving Animated Shapes in Services Background
+   ========================================================= */
+
+#services.services.section {
+  position: relative;
+  overflow: hidden;
+}
+
+#services > .container {
+  position: relative;
+  z-index: 2;
+}
+
+.services-bg-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.srv-shape {
+  position: absolute;
+  display: block;
+  opacity: 0.22;
+}
+
+/* Glowing Orbs & Rings */
+.srv-shape.s1 {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #18d26e, transparent 70%);
+  top: 6%;
+  left: 5%;
+  animation: driftAcross 18s ease-in-out infinite;
+}
+
+.srv-shape.s2 {
+  width: 90px;
+  height: 90px;
+  border: 3px solid #00b4d8;
+  border-radius: 50%;
+  top: 22%;
+  right: 8%;
+  animation: floatAndSpin 14s linear infinite;
+}
+
+.srv-shape.s3 {
+  width: 75px;
+  height: 75px;
+  border: 3px solid #18d26e;
+  border-radius: 14px;
+  top: 40%;
+  left: 12%;
+  animation: floatAndSpin 16s linear infinite reverse;
+}
+
+.srv-shape.s4 {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #3b82f6, transparent 70%);
+  top: 52%;
+  right: 6%;
+  animation: driftAcross 20s ease-in-out infinite reverse;
+}
+
+/* Floating Triangles */
+.srv-shape.s5 {
+  width: 0;
+  height: 0;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-bottom: 60px solid #18d26e;
+  top: 68%;
+  left: 7%;
+  animation: floatBounce 9s ease-in-out infinite;
+}
+
+.srv-shape.s6 {
+  width: 0;
+  height: 0;
+  border-left: 28px solid transparent;
+  border-right: 28px solid transparent;
+  border-bottom: 48px solid #00b4d8;
+  top: 14%;
+  left: 48%;
+  animation: floatAndSpin 12s linear infinite;
+}
+
+/* Extra Floating Squares & Diamonds */
+.srv-shape.s7 {
+  width: 55px;
+  height: 55px;
+  background: rgba(24, 210, 110, 0.35);
+  border-radius: 8px;
+  bottom: 12%;
+  right: 18%;
+  animation: floatAndSpin 15s linear infinite;
+}
+
+.srv-shape.s8 {
+  width: 110px;
+  height: 110px;
+  border: 2px dashed #38bdf8;
+  border-radius: 50%;
+  bottom: 8%;
+  left: 30%;
+  animation: driftAcross 22s ease-in-out infinite;
+}
+
+@keyframes driftAcross {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(60px, -35px) scale(1.15);
+  }
+}
+
+@keyframes floatAndSpin {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+  }
+}
+
+@keyframes floatBounce {
+  0%, 100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+  50% {
+    transform: translateY(-28px) rotate(12deg);
+  }
+}
+
+/* =========================================================
+   Upgrade About Header & Profile Section to Match Skill Progress
+   ========================================================= */
+
+/* 1. Match the About Page Title Banner & About Section Background */
+.about-page .page-title {
+  background: linear-gradient(-45deg, #081c15, #1b4332, #0b2545, #101820);
+  background-size: 300% 300%;
+  animation: gradientFlow 16s ease infinite;
+  border-bottom: 1px solid rgba(24, 210, 110, 0.2);
+}
+
+.about-page .page-title .heading h1 {
+  background: linear-gradient(90deg, #ffffff, #18d26e, #00b4d8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.about-page .page-title .breadcrumbs {
+  background: rgba(8, 28, 21, 0.65);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#about.about.section {
+  background: linear-gradient(-45deg, #081c15, #1b4332, #0b2545, #101820);
+  background-size: 300% 300%;
+  animation: gradientFlow 16s ease infinite;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+/* 2. Upgrade the Profile Image Frame */
+#about .col-lg-4 img {
+  border-radius: 16px;
+  border: 2px solid rgba(24, 210, 110, 0.45);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55), 0 0 24px rgba(24, 210, 110, 0.18);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+#about .col-lg-4 img:hover {
+  transform: translateY(-5px) scale(1.01);
+  border-color: #00b4d8;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.65), 0 0 30px rgba(0, 180, 216, 0.3);
+}
+
+/* 3. Glassmorphism Card for the Bio Content Box */
+#about .content {
+  background: linear-gradient(135deg, rgba(24, 210, 110, 0.12), rgba(0, 180, 216, 0.09), rgba(15, 23, 42, 0.88));
+  background-size: 250% 250%;
+  animation: gradientFlow 12s ease infinite;
+  border: 1px solid rgba(24, 210, 110, 0.28);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+}
+
+#about .content h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ffffff, #4ade80, #38bdf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+
+#about .content > p.fst-italic {
+  color: rgba(255, 255, 255, 0.85);
+  border-left: 3px solid var(--accent-color, #18d26e);
+  padding-left: 14px;
+  margin-bottom: 20px;
+}
+
+/* 4. Style Each Info Detail Row as a Sleek Mini-Badge */
+#about .content ul li {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+#about .content ul li:hover {
+  transform: translateX(4px);
+  border-color: var(--accent-color, #18d26e);
+  background: rgba(24, 210, 110, 0.1);
+}
+
+#about .content ul li i {
+  color: var(--accent-color, #18d26e);
+  font-size: 1rem;
+  margin-right: 8px;
+}
+
+#about .content ul li strong {
+  color: #a7f3d0;
+  margin-right: 6px;
+}
+
+/* 5. Highlight the Bottom Bio Paragraph */
+#about .content > p:last-child {
+  background: rgba(8, 28, 21, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.65;
+}
+
+/* Make the floating shapes in #about slightly brighter against the gradient */
+#about .about-shape {
+  opacity: 0.35;
+}
+
+/* =========================================================
+   Upgrade Top Banners (.page-title) & Cards Across All Pages
+   (Resume, Services, Portfolio, Contact)
+   ========================================================= */
+
+/* 1. Top Page Title Banner & Breadcrumbs on ALL pages */
+.page-title {
+  background: linear-gradient(-45deg, #081c15, #1b4332, #0b2545, #101820) !important;
+  background-size: 300% 300% !important;
+  animation: gradientFlow 16s ease infinite;
+  border-bottom: 1px solid rgba(24, 210, 110, 0.25);
+}
+
+.page-title .heading h1 {
+  background: linear-gradient(90deg, #ffffff, #18d26e, #00b4d8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.page-title .breadcrumbs {
+  background: rgba(8, 28, 21, 0.65) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 2. Resume Page Cards (resume.html) */
+#resume .resume-item {
+  background: linear-gradient(135deg, rgba(24, 210, 110, 0.08), rgba(0, 180, 216, 0.06), rgba(15, 23, 42, 0.85));
+  border-left: 2px solid var(--accent-color, #18d26e);
+  border-radius: 0 12px 12px 0;
+  padding: 18px 22px;
+  margin-bottom: 18px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#resume .resume-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 16px rgba(24, 210, 110, 0.15);
+}
+
+/* 3. Portfolio Cards (portfolio.html) */
+#portfolio .portfolio-content {
+  border: 1px solid rgba(24, 210, 110, 0.3);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#portfolio .portfolio-content:hover {
+  transform: translateY(-5px);
+  border-color: #00b4d8;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.65), 0 0 22px rgba(0, 180, 216, 0.25);
+}
+
+/* 4. Contact Info Boxes & Form (contact.html) */
+#contact .info-item,
+#contact .php-email-form {
+  background: linear-gradient(135deg, rgba(24, 210, 110, 0.1), rgba(0, 180, 216, 0.08), rgba(15, 23, 42, 0.88)) !important;
+  border: 1px solid rgba(24, 210, 110, 0.25);
+  border-radius: 14px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+}
+
+#contact .info-item:hover {
+  border-color: #00b4d8;
+  transform: translateY(-3px);
+  transition: all 0.25s ease;
+}

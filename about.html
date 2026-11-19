@@ -51,6 +51,7 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html" class="active">About</a></li>
+          <li><a href="about.html#progress-module">Skill Progress</a></li>
           <li><a href="resume.html">Resume</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
@@ -88,6 +89,16 @@
     <!-- About Section -->
     <section id="about" class="about section">
 
+      <!-- About Section -->
+    <section id="about" class="about section">
+
+      <!-- Animated CSS Shapes (Complementary Task 2) -->
+      <div class="about-shape shape-circle"></div>
+      <div class="about-shape shape-square"></div>
+      <div class="about-shape shape-triangle"></div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4 justify-content-center">
@@ -102,17 +113,17 @@
             <div class="row">
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May 1967</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456 7890</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May 2007</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>not available</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>not available</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Vilnius, Lithuania</span></li>
                 </ul>
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>67</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>19</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelor</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>email@example.com</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>not available</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
                 </ul>
               </div>
@@ -195,7 +206,199 @@
       </div>
 
     </section><!-- /Skills Section -->
+<!-- User Competency Progress Module Section -->
+    <section id="progress-module" class="progress-module section">
 
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Competency</h2>
+        <div><span>User Competency</span> <span class="description-title">Progress Module</span></div>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="ucp-wrapper">
+
+          <!-- 1. Top Row: XP, Level, Rank & Progress Bar (Tasks 3 & 4) -->
+          <div class="ucp-summary-card">
+            <div class="ucp-metrics-row">
+              <div class="ucp-profile-badge">
+                <i class="bi bi-mortarboard-fill"></i>
+                <div>
+                  <h4>AI Systems &amp; Web Dev</h4>
+                  <span>Student Competency Track</span>
+                </div>
+              </div>
+
+              <div class="ucp-metric-box xp-box">
+                <span class="ucp-metric-label"><i class="bi bi-layers-fill"></i> Earned XP</span>
+                <strong class="ucp-metric-value">195 XP <small>/ 365 XP Pool</small></strong>
+              </div>
+
+              <div class="ucp-metric-box level-box">
+                <span class="ucp-metric-label"><i class="bi bi-star-fill"></i> Current Level</span>
+                <strong class="ucp-metric-value">Level 3</strong>
+              </div>
+
+              <div class="ucp-metric-box rank-box">
+                <span class="ucp-metric-label"><i class="bi bi-trophy-fill"></i> Rank</span>
+                <strong class="ucp-metric-value">Specialist</strong>
+              </div>
+            </div>
+
+            <!-- Experience Points Progress Bar (Task 4) -->
+            <div class="ucp-xp-progress">
+              <div class="ucp-xp-progress-header">
+                <span>Progress to Level 4 (Professional)</span>
+                <span>65% (195 / 300 XP)</span>
+              </div>
+              <div class="ucp-xp-bar-track">
+                <div class="ucp-xp-bar-fill" style="width: 65%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Middle Row: Skill Progress Statistics (Task 5) -->
+          <div class="ucp-stats-bar">
+            <div class="ucp-stats-title">
+              <i class="bi bi-bar-chart-line-fill"></i>
+              <span>Skill Statistics</span>
+            </div>
+            <div class="ucp-stats-items">
+              <div class="ucp-stat-item">
+                <span class="ucp-stat-label">Total Skills</span>
+                <strong class="ucp-stat-number">7</strong>
+              </div>
+              <div class="ucp-stat-item">
+                <span class="ucp-stat-label">Completed Skills</span>
+                <strong class="ucp-stat-number">3</strong>
+              </div>
+              <div class="ucp-stat-item">
+                <span class="ucp-stat-label">Completion Rate</span>
+                <strong class="ucp-stat-number">43%</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Bottom Row: Skill Kanban Board (Task 2) -->
+          <div class="ucp-kanban-header">
+            <h3>Skill Kanban Board</h3>
+            <p>Track engineering and web development skills by progress status.</p>
+          </div>
+
+          <div class="ucp-kanban-board">
+
+            <!-- Column 1: Planned -->
+            <div class="ucp-column col-planned">
+              <div class="ucp-column-header">
+                <span><i class="bi bi-calendar-event"></i> Planned</span>
+                <span class="ucp-count-badge">2 skills</span>
+              </div>
+              <div class="ucp-card-list">
+                <div class="ucp-skill-card">
+                  <div class="ucp-skill-title">
+                    <i class="bi bi-cpu"></i>
+                    <h5>Neural Networks Basics</h5>
+                  </div>
+                  <div class="ucp-skill-meta">
+                    <span class="ucp-status status-planned">Planned</span>
+                    <span class="ucp-xp-tag">40 XP</span>
+                  </div>
+                </div>
+
+                <div class="ucp-skill-card">
+                  <div class="ucp-skill-title">
+                    <i class="bi bi-cloud-arrow-up"></i>
+                    <h5>REST API Integration</h5>
+                  </div>
+                  <div class="ucp-skill-meta">
+                    <span class="ucp-status status-planned">Planned</span>
+                    <span class="ucp-xp-tag">35 XP</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Column 2: In Progress -->
+            <div class="ucp-column col-progress">
+              <div class="ucp-column-header">
+                <span><i class="bi bi-arrow-repeat"></i> In Progress</span>
+                <span class="ucp-count-badge">2 skills</span>
+              </div>
+              <div class="ucp-card-list">
+                <div class="ucp-skill-card">
+                  <div class="ucp-skill-title">
+                    <i class="bi bi-filetype-js"></i>
+                    <h5>JavaScript DOM &amp; Events</h5>
+                  </div>
+                  <div class="ucp-skill-meta">
+                    <span class="ucp-status status-progress">In Progress</span>
+                    <span class="ucp-xp-tag">50 XP</span>
+                  </div>
+                </div>
+
+                <div class="ucp-skill-card">
+                  <div class="ucp-skill-title">
+                    <i class="bi bi-graph-up"></i>
+                    <h5>MATLAB Data Visualization</h5>
+                  </div>
+                  <div class="ucp-skill-meta">
+                    <span class="ucp-status status-progress">In Progress</span>
+                    <span class="ucp-xp-tag">45 XP</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Column 3: Completed -->
+            <div class="ucp-column col-completed">
+              <div class="ucp-column-header">
+                <span><i class="bi bi-check-circle"></i> Completed</span>
+                <span class="ucp-count-badge">3 skills</span>
+              </div>
+              <div class="ucp-card-list">
+                <div class="ucp-skill-card">
+                  <div class="ucp-skill-title">
+                    <i class="bi bi-code-slash"></i>
+                    <h5>HTML &amp; CSS Layout</h5>
+                  </div>
+                  <div class="ucp-skill-meta">
+                    <span class="ucp-status status-completed">Completed</span>
+                    <span class="ucp-xp-tag">60 XP</span>
+                  </div>
+                </div>
+
+                <div class="ucp-skill-card">
+                  <div class="ucp-skill-title">
+                    <i class="bi bi-diagram-3"></i>
+                    <h5>Python Data Structures</h5>
+                  </div>
+                  <div class="ucp-skill-meta">
+                    <span class="ucp-status status-completed">Completed</span>
+                    <span class="ucp-xp-tag">70 XP</span>
+                  </div>
+                </div>
+
+                <div class="ucp-skill-card">
+                  <div class="ucp-skill-title">
+                    <i class="bi bi-terminal"></i>
+                    <h5>C++ Algorithms</h5>
+                  </div>
+                  <div class="ucp-skill-meta">
+                    <span class="ucp-status status-completed">Completed</span>
+                    <span class="ucp-xp-tag">65 XP</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- End Kanban Board -->
+
+        </div>
+      </div>
+      </div>
+
+    </section><!-- /User Competency Progress Module Section -->
   </main>
 
   <footer id="footer" class="footer dark-background">
