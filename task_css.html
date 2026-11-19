@@ -1,0 +1,154 @@
+/* Test drive form - style.css
+   Only CSS, the HTML stays the same. */
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #22303c;
+  background: #e9eef3;
+  margin: 0;
+  padding: 24px 12px;
+}
+
+form {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin: 0 0 20px;
+}
+
+/* basic reset for every fieldset, so the inner ones stay plain */
+fieldset {
+  border: none;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+/* 1. only the big groups (direct children of the form) are cards */
+form > fieldset {
+  background: #ffffff;
+  border: 1px solid #cfd8e0;
+  border-radius: 10px;
+  padding: 24px 20px 12px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 6px rgba(34, 48, 60, 0.08);
+}
+
+/* 2. big titles are dark pills */
+form > fieldset > legend {
+  background: #1f2a37;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 4px 16px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+/* inner titles stay plain (this comes after, so it wins) */
+fieldset fieldset legend {
+  background: none;
+  color: #22303c;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 6px;
+}
+
+div {
+  margin-bottom: 14px;
+}
+
+div > label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+  color: #4a5b69;
+}
+
+/* radio and checkbox labels sit next to each other */
+fieldset fieldset label {
+  display: inline-block;
+  margin-right: 16px;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+
+/* text-like fields */
+input:not([type="radio"]):not([type="checkbox"]):not([type="range"]),
+select,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  padding: 8px 10px;
+  border: 1px solid #b8c4ce;
+  border-radius: 6px;
+  background: #fff;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+/* 3. required = blue line on the left */
+input:required:not([type="checkbox"]),
+select:required,
+textarea:required {
+  border-left: 5px solid #2f6fed;
+}
+
+/* the "terms" checkbox can't have a border, so the label gets the line */
+label:has(input[type="checkbox"]:required) {
+  border-left: 5px solid #2f6fed;
+  padding-left: 8px;
+}
+
+/* 4. states: hover and focus */
+input:not([type="radio"]):not([type="checkbox"]):not([type="range"]):hover,
+select:hover,
+textarea:hover {
+  border-color: #2f6fed;
+  background: #f5f8ff;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid rgba(47, 111, 237, 0.35);
+  outline-offset: 1px;
+  border-color: #2f6fed;
+  background: #f5f8ff;
+}
+
+fieldset fieldset label:hover {
+  color: #2f6fed;
+}
+
+button {
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: #2f6fed;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 24px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1f56c4;
+}
+
+button:focus {
+  outline: 3px solid rgba(47, 111, 237, 0.35);
+  outline-offset: 2px;
+}
